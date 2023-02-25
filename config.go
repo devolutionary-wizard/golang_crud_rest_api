@@ -1,8 +1,9 @@
 package main
 
 import (
-	"github.com/spf13/viper"
 	"log"
+
+	"github.com/spf13/viper"
 )
 
 type Config struct {
@@ -13,7 +14,7 @@ type Config struct {
 var AppConfig *Config
 
 func LoadAppConfig() {
-	log.Println("Loading Server Configuration ...")
+	log.Println("Loading Server Configurations...")
 	viper.AddConfigPath(".")
 	viper.SetConfigName("config")
 	viper.SetConfigType("json")
@@ -22,7 +23,6 @@ func LoadAppConfig() {
 		log.Fatal(err)
 	}
 	err = viper.Unmarshal(&AppConfig)
-
 	if err != nil {
 		log.Fatal(err)
 	}
